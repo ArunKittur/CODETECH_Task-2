@@ -1,0 +1,109 @@
+
+/*Develop a Java program to track and manage student grades. The
+program should allow the user to input grades for different subjects or
+assignments, calculate the average grade, and display the overall
+grade along with any additional information (such as letter grade or
+GPA).*/
+
+package Task_1;
+
+import java.util.Scanner;
+
+public class Student_Grade 
+{
+public static double calAverage(double[] grades)
+{
+	double sum=0;
+	for(double grade : grades)
+	{
+		sum+=grade;
+    }
+	return sum/grades.length;
+}
+
+public static String getLetterGrade(double average)
+{
+	if(average >=90)
+	{
+		return "A";
+	}else if(average >=80) {
+		return "B";
+	}else if(average >=70) {
+		return "C";
+	}else if(average >=60) {
+		return "D";
+	}else {
+		return "F";
+	}
+}
+public static double getGPA(double average) 
+{
+	if(average >=90) {
+		return 4.0;
+	}else if(average >=80) {
+		return 3.0;
+	}else if(average >=70) {
+		return 2.0;
+	}else if(average >=60) {
+		return 1.0;
+	}else {
+		return 0.0;
+	}
+}
+public static void main(String[] args) 
+{
+Scanner sc=new Scanner(System.in);
+
+System.out.println("Enter the number of subjects");
+int n=sc.nextInt();
+double[] grades=new double[n];
+
+for(int i=0;i<n;i++)
+{
+System.out.println("Enter the grade for subject " +(i+1)+":");	
+grades[i]=sc.nextDouble();
+}
+
+double average=calAverage(grades);
+
+String letterGreade=getLetterGrade(average);
+double gpa=getGPA(average);
+
+System.out.printf("\nOverall Average Greade: %.2f\n",average);
+System.out.println("Letter Grade: "+letterGreade);
+System.out.printf("GPA: %.2f\n",gpa);
+
+sc.close();
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
